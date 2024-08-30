@@ -7,17 +7,20 @@ import java.util.List;
 
 @Entity
 @NoArgsConstructor
-@RequiredArgsConstructor
+@AllArgsConstructor
 @Getter
+@Setter
 public class Library {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @NonNull
     private int id;
-    @NonNull
     private String name;
-    @NonNull
     private String address;
     @OneToMany(mappedBy = "library", fetch = FetchType.EAGER)
     List<Book> books;
+
+    public Library(String name, String address) {
+        this.name = name;
+        this.address = address;
+    }
 }
