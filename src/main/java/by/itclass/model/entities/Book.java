@@ -17,5 +17,11 @@ public class Book {
     @NonNull
     private int pages;
     @ManyToOne
+    @NonNull
     private Library library;
+
+    public Book(@NonNull String title, @NonNull int pages) {
+        this.title = title;
+        this.pages = pages;
+    }
 }
